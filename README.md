@@ -44,8 +44,10 @@ node scripts/verify-api.mjs
 
 采用 Vercel 托管整个 Next.js 应用。在 Production 和 Preview 环境配置服务端 `DEEPSEEK_API_KEY` 与 `DEEPSEEK_MODEL`，不要使用 `NEXT_PUBLIC_` 前缀。
 
-项目已有 Vercel 部署配置，执行 `npx vercel` 生成预览，`npx vercel --prod` 更新正式版本。与 GitHub 的自动部署连接仍须具备对应私有仓库访问权限；具体当前状态记录在上级项目日志和任务地图中。
+已连接公开仓库 [spongebody/english-sentence-visualizer](https://github.com/spongebody/english-sentence-visualizer)。推送 `main` 触发 Vercel 正式部署；其他分支或 PR 更新使用预览部署。环境变量在 Vercel 项目设置中维护，部署状态可在 GitHub 提交检查或 Vercel Deployments 查看。
 
-如果直接连接知识库仓库，Vercel Root Directory 应设为 `Side_project/english-sentence-visualizer/code`；若按项目毕业机制拆出工程仓库，Root Directory 使用仓库根目录。
+需要手动部署时，在工程根执行 `npx vercel` 生成预览，`npx vercel --prod` 更新正式版本。
+
+Vercel 连接的是拆出的独立工程仓库，Root Directory 使用仓库根目录。
 
 MVP 不包含限流、每日配额、账户或用户自带 Key。输入长度与请求超时只用于保持分析和渲染可用，不是调用额度管理。
